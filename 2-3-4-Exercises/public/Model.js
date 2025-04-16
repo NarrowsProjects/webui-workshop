@@ -32,6 +32,8 @@ export default class Model extends Observable {
     switch (this.router.params.page) {
       case 'home':
         break;
+      case 'about':
+        break;
       default:
         this.router.go('?page=home');
         break;

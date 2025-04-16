@@ -1,4 +1,6 @@
+import aboutPage from './about/aboutPage.js';
 import {h} from '/js/src/index.js';
+import homePage from './home/homePage.js';
 
 /**
  * Main view layout
@@ -7,7 +9,7 @@ import {h} from '/js/src/index.js';
 export default (model) => [
   h('.flex-column.absolute-fill', [
     header(model),
-    content()
+    content(model)
   ])
 ];
 
@@ -24,4 +26,9 @@ const header = (model) =>
  * Page content
  * @return {vnode}
  */
-const content = () => h('', 'Add your content here');
+const content = (model) => {
+  switch(model.router.params.page){
+    case("home"): return homePage(model);
+    case("about"): return aboutPage(model);
+  }
+}
