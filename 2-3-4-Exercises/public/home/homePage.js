@@ -1,4 +1,4 @@
-import {h, info} from '/js/src/index.js';
+import {h, info, iconPerson} from '/js/src/index.js';
 
 export default (model) => h('.p2', [
   h('h1', 'Home Page'),
@@ -7,6 +7,12 @@ export default (model) => h('.p2', [
       console.log('Navigating to About page');
       model.router.go('?page=about');
     }
-  }, [info(), 'About'])
+  }, [info(), 'About']),
+  h('button.btn.btn-secondary.m1#ChangeNameButton', {
+    onclick: () => {
+      console.log('Fetching username');
+      console.log('Username:', model.session.username);
+    }
+  }, [iconPerson(), 'Get Username'])
 ]);
 
