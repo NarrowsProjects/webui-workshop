@@ -1,4 +1,5 @@
 import {Observable, QueryRouter, Loader, sessionService} from '/js/src/index.js';
+import Home from './home/Home.js';
 
 /**
  * Root of model tree
@@ -8,6 +9,7 @@ export default class Model extends Observable {
   /**
    * Load all sub-models and bind event handlers
    */
+  home;
   constructor() {
     super();
 
@@ -22,6 +24,9 @@ export default class Model extends Observable {
     this.router.observe(this.handleLocationChange.bind(this));
     this.router.bubbleTo(this);
 
+    this.home = new Home();
+    this.home.bubbleTo(this); // makes notifications from hom 'visible' to Model.
+    
     this.handleLocationChange(); // Init first page
   }
 

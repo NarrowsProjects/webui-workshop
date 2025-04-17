@@ -11,8 +11,9 @@ export default (model) => h('.p2', [
   h('button.btn.btn-secondary.m1#ChangeNameButton', {
     onclick: () => {
       console.log('Fetching username');
-      console.log('Username:', model.session.username);
+      model.home.setUserName('New username');
+      console.log('Username:', model.home.getUserName());
     }
-  }, [iconPerson(), 'Get Username'])
+  }, [iconPerson(), 'Change Username']),
+  h('label.m1', `Current User: ${model.home.getUserName()}`)
 ]);
-
