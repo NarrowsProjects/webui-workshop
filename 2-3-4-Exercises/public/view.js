@@ -17,10 +17,26 @@ export default (model) => [
  * Top header of the page
  * @return {vnode}
  */
-const header = (model) =>
-  h('.p2.shadow-level2.level2', {
+const header = (model) =>{
+  const page = model.router.params.page;
+  
+  return h('.p2.shadow-level2.level2', {
     style: 'display: flex; justify-content: center'
-  }, `Welcome to the ${model.router.params.page} page`);
+  }, [
+    `Welcome to the ${page} page. `,
+    renderNumber(model)
+  ])};
+
+function renderNumber(model){
+  const socketNr = model.socketNr;
+  if (socketNr === null) return renderSocketButton(model);
+
+  return `Your current number is: ${socketNr}.`
+}
+
+function renderSocketButton(model){
+  return h("button.btn.btn-primary#NrSocketButton", { onclick: _=> model.openNrStream() }, "Get Your Number")
+}
 
 /**
  * Page content
