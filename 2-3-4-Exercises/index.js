@@ -9,7 +9,7 @@ http.addStaticPath(path.join(__dirname, 'public'));
 http.get("/application", (_req, res) => {
     application_data = {
         appName: 'WebUI Workshop',
-        year: 2023,
+        year: 2025,
         version: '1.0.0'
     }
     
