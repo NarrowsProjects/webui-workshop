@@ -12,7 +12,7 @@ export default class About extends Observable {
     this.requestedTimes++;
     const result = {
       appName: 'WebUI Workshop',
-      year: 2023,
+      year: 2025,
       version: '1.0.0'
     }
 
