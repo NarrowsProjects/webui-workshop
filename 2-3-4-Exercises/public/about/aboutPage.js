@@ -15,5 +15,26 @@ export default (model) => h('.p2', [
       model.about.getDetails();
       console.log('Application Data:', model.about.details);
     }
-  }, [iconCloudDownload(), 'Get Application Data'])
+  }, [iconCloudDownload(), 'Get Application Data']),
+  renderTable(model)
 ]);
+
+function renderTable(model){
+  const keys = Object.keys(model.about.details);
+  if (keys.length !== 0){
+    return h('table.table', [
+      h('thead', h('tr', [
+        h('th', 'Property'),
+        h('th', 'Value')
+      ])),
+      h('tbody', 
+        Object.entries(model.about.details).map(([key, value]) => 
+          h('tr', [
+            h('td', key),
+            h('td', String(value))
+          ])
+        )
+      )
+    ])
+  } else return h('p', 'No data available yet. Click "Get Application Data" to fetch details.')
+}
