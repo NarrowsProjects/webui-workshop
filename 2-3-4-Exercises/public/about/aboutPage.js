@@ -16,25 +16,36 @@ export default (model) => h('.p2', [
       console.log('Application Data:', model.about.details);
     }
   }, [iconCloudDownload(), 'Get Application Data']),
-  renderTable(model)
+  renderRemoteData(model)
 ]);
 
-function renderTable(model){
-  const keys = Object.keys(model.about.details);
-  if (keys.length !== 0){
+function renderRemoteData(model) {
+  return model.about.details.match({
+    NotAsked: () => h('p', 'No data requested yet. Click "Get Application Data" to fetch details.'),
+    Loading: () => h('p', 'Loading application data...'),
+    Success: (data) => renderTable(data),
+    Failure: (error) => h('p', {style: 'color: red'}, `Error: ${error}`)
+  });
+}
+
+function renderTable(data) {
+  const keys = Object.keys(data);
+  if (keys.length !== 0) {
+    const entries = Object.entries(data);
     return h('table.table', [
       h('thead', h('tr', [
         h('th', 'Property'),
         h('th', 'Value')
       ])),
       h('tbody', 
-        Object.entries(model.about.details).map(([key, value]) => 
+        entries.map(([key, value]) => 
           h('tr', [
             h('td', key),
             h('td', String(value))
           ])
         )
       )
-    ])
-  } else return h('p', 'No data available yet. Click "Get Application Data" to fetch details.')
+    ]);
+  }
+  return h('p', 'No data available');
 }
