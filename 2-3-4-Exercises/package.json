@@ -15,7 +15,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon --watch index.js --watch lib --watch config-default.js index.js",
-    "test": "mocha --exit test/**/mocha-*"
+    "test": "mocha --exit test/**/mocha-*",
+    "coverage": "nyc npm run test"
   },
   "dependencies": {
     "@aliceo2/web-ui": "2.7.3",
