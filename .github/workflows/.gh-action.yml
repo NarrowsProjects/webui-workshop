@@ -4,6 +4,9 @@ on: [push]
 jobs:
   test-macos:
     runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: ./2-3-4-Exercises
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js
@@ -17,6 +20,9 @@ jobs:
 
   test-ubuntu:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./2-3-4-Exercises
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js
