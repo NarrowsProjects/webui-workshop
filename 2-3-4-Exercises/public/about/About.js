@@ -1,4 +1,3 @@
-// public/about/About.js
 import {Observable, Loader, RemoteData} from '/js/src/index.js';
 
 export default class About extends Observable {

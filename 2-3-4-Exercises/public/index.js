@@ -1,7 +1,7 @@
-import sessionService from '/js/src/sessionService.js';
-import {mount} from '/js/src/index.js';
-import view from './view.js';
-import Model from './Model.js';
+import sessionService  from '/js/src/sessionService.js';
+import {mount}  from '/js/src/index.js';
+import view  from './view.js';
+import Model  from './Model.js';
 
 sessionService.loadAndHideParameters();
 window.sessionService = sessionService;

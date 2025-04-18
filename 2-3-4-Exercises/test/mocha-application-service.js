@@ -1,6 +1,6 @@
-import { describe, it } from 'mocha';
-import { expect } from 'chai';
-import { ApplicationService } from '../lib/ApplicationService.js';
+const { describe, it } = require('mocha');
+const { expect } = require('chai');
+const { ApplicationService } = require('../lib/ApplicationService.js');
 
 describe('ApplicationService', () => {
   describe('getApplicationData', () => {
