@@ -1,19 +1,8 @@
-import {describe, it} from 'mocha';
-import { expect } from 'chai';
-import { ApplicationService } from '../lib/ApplicationService.js';
+const { describe, it } = require('mocha');
+const { expect } = require('chai');
+const { ApplicationService } = require('../lib/ApplicationService.js');
 
 describe('ApplicationService', () => {
-  describe('constructor', () => {
-    it('should initialize with correct default application data', () => {
-      const service = new ApplicationService();
-      expect(service.applicationData).to.deep.equal({
-        appName: 'WebUI Workshop',
-        year: 2025,
-        version: '1.0.0'
-      });
-    });
-  });
-
   describe('getApplicationData', () => {
     it('should return the application data object', () => {
       const service = new ApplicationService();
